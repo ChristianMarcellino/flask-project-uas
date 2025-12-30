@@ -8,13 +8,13 @@ CORS(app)
 
 columns = [
     "Age",
-     "Gender",
-     "Heart rate",
-     "Systolic blood pressure",
-     "Diastolic blood pressure",
-     "Blood sugar",
-     "CK-MB",
-     "Troponin"
+    "Gender",
+    "Heart rate",
+    "Systolic blood pressure",
+    "Diastolic blood pressure",
+    "Blood sugar",
+    "CK-MB",
+    "Troponin"
 ]
 
 loaded_model = joblib.load('models/heartattack.pkl')
