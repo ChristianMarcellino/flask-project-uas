@@ -8,8 +8,8 @@ function PredictHeartAttack() {
         <img src="https://media.tenor.com/I9qt03YKkjQAAAAe/monkey-thinking.png" alt="" />
     }
     return (
-        <div className="min-h-screen bg-white flex items-center justify-center ">
-            <div className="bg-gray-50 border rounded-2xl border-black flex items-center justify-center shadow-xl ">
+        <div className="min-h-screen bg-base-200 flex items-center justify-center ">
+            <div className="bg-base-200 border rounded-2xl border-black flex items-center justify-center shadow-xl ">
                 <div className=" p-5 rounded-3xl max-w-6xl">
                     <FormPredict isloading={isloading} setIsloading={setIsloading} setPrediction={setPrediction}/>
                 </div>
