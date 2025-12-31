@@ -5,10 +5,10 @@ import InfoIcon from "./InfoIcon"
 function FormPredict({  
     isloading, setIsloading, setPrediction
 }) {
-
+    
     const [form, setForm] = useState({
         "Age": 0,
-        "Gender": 0,
+        "Gender":0,
         "Heart rate": 0,
         "Systolic blood pressure": 0,
         "Diastolic blood pressure": 0,
@@ -16,6 +16,7 @@ function FormPredict({
         "CK-MB": 0,
         "Troponin": 0,
     })
+
     const handlerOnChange = (event) => {
         const { value, name } = event.target
 
@@ -28,22 +29,20 @@ function FormPredict({
         event.preventDefault()
         setIsloading(true)
         try {
-            const formData = {
-                ...form,
-                "Gender": form.Gender === "Man" ? 0 : 1,
-                "Age": Number(form.Age),
-                "Heart rate": Number(form["Heart rate"]),
-                "Systolic blood pressure": Number(form["Systolic blood pressure"]),
-                "Diastolic blood pressure": Number(form["Diastolic blood pressure"]),
-                "Blood sugar": Number(form["Blood sugar"]),
-                "CK-MB": Number(form["CK-MB"]),
-                "Troponin": Number(form["Troponin"])
-            }
-            console.log("Sending data:", formData);
-            const response = await http.post("/predict-heart-attack", formData)
+            console.log("Sending data:");
+            const response = await http.post("/predict-heart-attack", {
+                "Age": form.Age,
+                "Gender" : form.Gender === "Male" ? 1 : 0,
+                "Heart rate": form["Heart rate"],
+                "Systolic blood pressure": form["Systolic blood pressure"],
+                "Diastolic blood pressure": form["Diastolic blood pressure"],
+                "Blood sugar": form["Blood sugar"],
+                "CK-MB": form["CK-MB"],
+                "Troponin": form.Troponin,
+            })
             const { data } = response.data
-            console.log("data:", data);
-            setPrediction(data);
+            console.log(data.prediction);
+            setPrediction(data.prediction);
         } catch (error) {
             console.error("Error:", error);
         } finally {
@@ -59,10 +58,13 @@ function FormPredict({
         <fieldset className="fieldset">
             <legend className="fieldset-legend">Gender <InfoIcon description="Patient's gender. Males and females have different risks of heart disease." /></legend>
             <select className="select" value={form.Gender} name="Gender" onChange={handlerOnChange}>
-                <option>Man</option>
-                <option>Woman</option>
+                <option>Female</option>
+                <option>Male</option>
             </select>
         </fieldset>
+
+        <p>{form.Gender}</p>
+
         <fieldset className="fieldset">
             <legend className="fieldset-legend">Heart rate <InfoIcon description="Number of heartbeats per minute (bpm). Abnormal heart rate can indicate heart health problems." /></legend>
             <input type="number" className="input" placeholder="Heart rate" value={form["Heart rate"]} name="Heart rate" onChange={handlerOnChange} />
@@ -85,7 +87,7 @@ function FormPredict({
         </fieldset>
         <fieldset className="fieldset">
             <legend className="fieldset-legend">Troponin <InfoIcon description="Protein released when heart damage occurs. High troponin is an important marker for heart attack diagnosis." /></legend>
-            <input type="number" className="input" placeholder="Troponin" value={form["Troponin"]} name="Troponin" onChange={handlerOnChange} />
+            <input type="number" className="input" placeholder="Troponin" value={form.Troponin} name="Troponin" onChange={handlerOnChange} />
         </fieldset>
 
         <button className="btn btn-neutral mt-4" disabled={isloading}>{

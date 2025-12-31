@@ -2,7 +2,7 @@ import { useState } from "react"
 import FormPredict from "./components/form-heart-attack"
 
 function PredictHeartAttack() {
-    const [predict,setPrediction] = useState(null)
+    const [predict,setPrediction] = useState()
     const [isloading, setIsloading] = useState(false)
     if (isloading) {
         <img src="https://media.tenor.com/I9qt03YKkjQAAAAe/monkey-thinking.png" alt="" />
@@ -14,7 +14,7 @@ function PredictHeartAttack() {
                     <FormPredict isloading={isloading} setIsloading={setIsloading} setPrediction={setPrediction}/>
                 </div>
                 <div className="p-5">
-                    Hasil Prediksi : sepertinya {predict === 0 ?"negatif" : "Positif"}
+                    Hasil Prediksi : sepertinya {predict}
                 </div>
             </div>
         </div>
