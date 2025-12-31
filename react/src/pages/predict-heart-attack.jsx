@@ -1,5 +1,5 @@
 import { useState } from "react"
-import FormPredict from "./components/form-heart-atack"
+import FormPredict from "./components/form-heart-attack"
 
 function PredictHeartAttack() {
     const [predict,setPrediction] = useState(null)

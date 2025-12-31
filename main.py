@@ -27,7 +27,12 @@ def predict():
 
     prediction = loaded_model.predict(x_input)
 
-    return(prediction.tolist())
+    return jsonify({
+        "data": {
+            "prediction": "Positive" if (prediction.tolist()[0] == 1) else "Negative",
+            "probability": f"{loaded_model.predict_proba(x_input)[0][1]*100:.2f}%"
+        }
+    })
 
 
 if __name__ == '__main__':
