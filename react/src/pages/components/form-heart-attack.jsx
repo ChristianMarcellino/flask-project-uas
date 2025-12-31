@@ -3,7 +3,7 @@ import http from "../../utils/http"
 import InfoIcon from "./InfoIcon"
 
 function FormPredict({  
-    isloading, setIsloading, setPrediction
+    isloading, setIsloading, setResult
 }) {
     
     const [form, setForm] = useState({
@@ -29,7 +29,6 @@ function FormPredict({
         event.preventDefault()
         setIsloading(true)
         try {
-            console.log("Sending data:");
             const response = await http.post("/predict-heart-attack", {
                 "Age": form.Age,
                 "Gender" : form.Gender === "Male" ? 1 : 0,
@@ -41,10 +40,10 @@ function FormPredict({
                 "Troponin": form.Troponin,
             })
             const { data } = response.data
-            console.log(data.prediction);
-            setPrediction(data.prediction);
+            console.log(data);
+            setResult(data);
         } catch (error) {
-            console.error("Error:", error);
+            console.error(error);
         } finally {
             setIsloading(false)
         }
@@ -62,9 +61,6 @@ function FormPredict({
                 <option>Male</option>
             </select>
         </fieldset>
-
-        <p>{form.Gender}</p>
-
         <fieldset className="fieldset">
             <legend className="fieldset-legend">Heart rate <InfoIcon description="Number of heartbeats per minute (bpm). Abnormal heart rate can indicate heart health problems." /></legend>
             <input type="number" className="input" placeholder="Heart rate" value={form["Heart rate"]} name="Heart rate" onChange={handlerOnChange} />

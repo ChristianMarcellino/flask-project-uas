@@ -11,7 +11,7 @@ function InfoIcon({ description, id }) {
         >
             <button
                 type="button"
-                className="inline-flex items-center justify-center w-5 h-5 text-xs font-bold bg-gray-600 rounded-full hover:bg-black cursor-help"
+                className="transition duration-300 ease-in-out inline-flex items-center justify-center w-5 h-5 text-xs font-bold bg-gray-600 rounded-full hover:bg-black cursor-help"
             > ?
             </button>
             {showTooltip && (
