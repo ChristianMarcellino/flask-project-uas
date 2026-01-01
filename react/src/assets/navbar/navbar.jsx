@@ -1,6 +1,6 @@
 import { NavLink } from "react-router"
 function Navbar() {
-    return <div className="navbar bg-base-100 shadow-sm">
+    return <div className="navbar bg-white dark:bg-gray-900 shadow-sm px-4">
         <div className="navbar-start">
             <div className="dropdown">
                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -15,7 +15,7 @@ function Navbar() {
             </div>
         </div>
         <div className="navbar-center">
-            <NavLink to="/" className="btn btn-ghost text-xl">Predict Heart Attack</NavLink>
+            <NavLink to="/predict" className="btn btn-ghost text-xl">Predict Heart Attack</NavLink>
         </div>
         <div className="navbar-end">
             <div className="dropdown dropdown-end">
