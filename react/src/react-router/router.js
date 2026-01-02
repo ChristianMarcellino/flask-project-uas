@@ -23,6 +23,14 @@ const router = createBrowserRouter([
                         return component.default
                     }
                 }
+            },{
+                path: "wawan",
+                lazy: {
+                    Component: async() =>{
+                        const component = await import("../pages/learn-more")
+                        return component.default
+                    }
+                }
             },
         ]
     },
