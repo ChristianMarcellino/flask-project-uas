@@ -46,7 +46,7 @@ function PredictPage() {
       </NavLink>
 
       <NavLink
-        to="/wawan"
+        to="/learn-more"
         className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-blue-400 border border-blue-300 rounded-lg hover:bg-blue-50 transition"
       >
         Learn More
