@@ -30,14 +30,14 @@ function FormPredict({
         setIsloading(true)
         try {
             const response = await http.post("/predict-heart-attack", {
-                "Age": form.Age,
-                "Gender" : form.Gender === "Male" ? 1 : 0,
-                "Heart rate": form["Heart rate"],
-                "Systolic blood pressure": form["Systolic blood pressure"],
-                "Diastolic blood pressure": form["Diastolic blood pressure"],
-                "Blood sugar": form["Blood sugar"],
-                "CK-MB": form["CK-MB"],
-                "Troponin": form.Troponin,
+                "Age": Number(form.Age),
+                "Gender" : Number(form.Gender === "Male" ? 1 : 0),
+                "Heart rate": Number(form["Heart rate"]),
+                "Systolic blood pressure": Number(form["Systolic blood pressure"]),
+                "Diastolic blood pressure": Number(form["Diastolic blood pressure"]),
+                "Blood sugar": Number(form["Blood sugar"]),
+                "CK-MB": Number(form["CK-MB"]),
+                "Troponin": Number(form.Troponin),
             })
             const { data } = response.data
             console.log(data);

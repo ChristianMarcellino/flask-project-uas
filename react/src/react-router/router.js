@@ -24,7 +24,7 @@ const router = createBrowserRouter([
                     }
                 }
             },{
-                path: "wawan",
+                path: "learn-more",
                 lazy: {
                     Component: async() =>{
                         const component = await import("../pages/learn-more")
