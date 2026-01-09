@@ -1,27 +1,35 @@
 import { useState } from "react"
 import FormPredict from "./components/form-heart-attack"
+import ResultHeartAttack from "./components/ResultHeartAttack"
 
 function PredictHeartAttack() {
-    const [result,setResult] = useState({
-        "probability" : "Menunggu Hasil",
-        "prediction" : "Menunggu Hasil"
-    })
+    const defaultResult = {
+        "probability": null,
+        "prediction": null
+    };
+
+    const [result, setResult] = useState(defaultResult)
     const [isloading, setIsloading] = useState(false)
-    if (isloading) {
-        <img src="https://media.tenor.com/I9qt03YKkjQAAAAe/monkey-thinking.png" alt="" />
+
+    const hasResult = result.probability !== null && result.probability !== "Menunggu Hasil";
+
+    const handleReset = () => {
+        setResult(defaultResult);
     }
+
     return (
-        <div className="min-h-screen bg-base-200 flex-col flex items-center justify-center ">
-            
-            <h1>Heart Attack Prediction</h1>
-            <div className="bg-base-200 border rounded-2xl border-black flex items-center justify-center shadow-xl ">
-                <div className=" p-5 rounded-3xl max-w-6xl">
-                    <FormPredict isloading={isloading} setIsloading={setIsloading} setResult={setResult}/>
-                </div>
-                <div className="p-5">
-                    <p>Potensi Serangan Jantung : {result.probability} </p>
-                    <p>Hasil Prediksi : {result.prediction}</p>
-                </div>
+        <div className="min-h-screen bg-black flex flex-col items-center justify-center p-4">
+
+            <div className="w-full max-w-md">
+                {hasResult ? (
+                    <ResultHeartAttack result={result} onReset={handleReset} />
+                ) : (
+                    <FormPredict
+                        isloading={isloading}
+                        setIsloading={setIsloading}
+                        setResult={setResult}
+                    />
+                )}
             </div>
         </div>
     )
