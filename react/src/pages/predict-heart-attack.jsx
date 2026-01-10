@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import FormPredict from "./components/form-heart-attack"
 import ResultHeartAttack from "./components/ResultHeartAttack"
 
@@ -17,8 +17,12 @@ function PredictHeartAttack() {
         setResult(defaultResult);
     }
 
+    useEffect(() => {
+        document.title = "Predict Heart Attack Risk";
+      }, [])
+
     return (
-        <div className="min-h-screen bg-black flex flex-col items-center justify-center p-4">
+        <div className="min-h-screen bg-slate-800 flex flex-col items-center justify-center p-4">
 
             <div className="w-full max-w-md">
                 {hasResult ? (

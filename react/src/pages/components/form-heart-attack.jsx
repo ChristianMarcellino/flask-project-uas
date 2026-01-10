@@ -57,9 +57,6 @@ function FormPredict({
         <div className="w-full max-w-md mx-auto bg-gray-900 text-gray-100 p-6 rounded-3xl shadow-2xl font-sans">
             <div className="mb-6">
                 <div className="flex items-center mb-2">
-                    <button className="btn btn-circle btn-ghost btn-sm mr-2 text-white">
-                        <FontAwesomeIcon icon={faArrowLeft} className="w-5 h-5" />
-                    </button>
                     <span className="text-gray-400 text-sm font-medium tracking-wide">Risk Assessment</span>
                 </div>
                 <h2 className="text-3xl font-bold text-white mb-2">Heart Attack Risk</h2>
@@ -71,14 +68,14 @@ function FormPredict({
             <form onSubmit={handleSubmit} className="space-y-5">
 
                 <div className="space-y-3">
-                    <div className="flex items-center space-x-2 text-green-500 mb-1">
+                    <div className="ml-0.5 flex items-center space-x-2 text-green-500 mb-1">
                         <FontAwesomeIcon icon={faUser} className="w-5 h-5" />
                         <h3 className="font-semibold text-white">Demographics</h3>
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
                         <div className="form-control">
-                            <label className="label text-xs text-gray-400 pb-1 flex items-center">
+                            <label className="label ml-2 text-xs text-gray-400 pb-1 flex items-center">
                                 Age
                                 <InfoIcon description="Patient's age in years. Heart disease risk tends to increase with age." />
                             </label>
@@ -94,7 +91,7 @@ function FormPredict({
                             />
                         </div>
                         <div className="form-control">
-                            <label className="label text-xs text-gray-400 pb-1 flex items-center">
+                            <label className="label ml-2 text-xs text-gray-400 pb-1 flex items-center">
                                 Gender
                                 <InfoIcon description="Patient's gender. Men and women have different heart disease risk profiles." />
                             </label>
@@ -218,7 +215,6 @@ function FormPredict({
                                 <input
                                     type="number"
                                     name="CK-MB"
-                                    min={0}
                                     value={form["CK-MB"]}
                                     onChange={handlerOnChange}
                                     className="input input-bordered bg-gray-950 border-gray-700 text-white focus:border-green-500 focus:outline-none rounded-xl w-full pr-12"
@@ -237,7 +233,6 @@ function FormPredict({
                                 <input
                                     type="number"
                                     name="Troponin"
-                                    min={0}
                                     value={form.Troponin}
                                     onChange={handlerOnChange}
                                     className="input input-bordered bg-gray-950 border-gray-700 text-white focus:border-green-500 focus:outline-none rounded-xl w-full pr-12"

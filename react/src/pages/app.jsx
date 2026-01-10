@@ -1,24 +1,15 @@
 import { NavLink } from "react-router"
 import previewImg from "../assets/images/preview.png";
+import { useEffect } from "react";
 
 function PredictPage() {
+
+  useEffect(() => {
+    document.title = "Dashboard";
+  }, [])
+
   return (
-    // <div className="hero bg-base-200 min-h-screen">
-    //   <div className="hero-content flex-col lg:flex-row-reverse">
-    //     <img
-    //       src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3VzdmtuZGxybWpsY3gzYjc1MG80NGR0MWlodG9md2RveXE3ZmFxdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/eyupvI48Z0b0Ax1txM/giphy.gif"
-    //       className="max-w-sm rounded-lg shadow-2xl"
-    //     />
-    //     <div>
-    //       <h1 className="text-5xl font-bold">Kelompok #</h1>
-    //       <p className="py-6">
-    //         Sakit Jantung? Takut Kena Serangan Jantung? Ayo Prediksi Serangan Jantung
-    //       </p>
-    //       <NavLink to="/predict" className="btn btn-primary">Tekan Saya</NavLink>
-    //     </div>
-    //   </div>
-    // </div>
-    <section className="bg-gray-50 dark:bg-gray-900">
+    <section className="bg-gray-50 dark:bg-slate-800">
   <div className="grid max-w-screen-xl px-4 py-16 mx-auto lg:gap-8 lg:grid-cols-12">
     
     <div className="mr-auto place-self-center lg:col-span-7">

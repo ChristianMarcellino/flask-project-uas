@@ -2,7 +2,13 @@ import { NavLink } from "react-router";
 import heart_attack from "../assets/images/heart_attack.jpg";
 import aduhduh from "../assets/images/aduhduh.jpg";
 import medicine from "../assets/images/medicine.jpg"
+import { useEffect } from "react";
+
 function LearnMore() {
+    
+useEffect(() => {
+    document.title = "About Heart Attack";
+  }, [])
     return (
         <section className="bg-gray-50 dark:bg-gray-900">
             <div className="grid max-w-screen-xl px-4 py-16 mx-auto lg:gap-8 lg:grid-cols-12">
