@@ -19,6 +19,13 @@ columns = [
 
 loaded_model = joblib.load('heartattack.pkl')
 
+@app.route("/", methods=["GET"])
+def welcome():
+    return jsonify({
+        "status" : "Success",
+        "message" : "Welcome to Heart Attack Prediction API"
+    })
+
 @app.route("/api/predict-heart-attack", methods=["POST"])
 def predict():
     data = request.get_json()
