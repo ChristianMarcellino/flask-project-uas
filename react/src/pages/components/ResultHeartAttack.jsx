@@ -4,17 +4,12 @@ import { faArrowLeft, faHeartPulse, faDroplet, faUser, faUserDoctor, faFloppyDis
 function ResultHeartAttack({ result, onReset }) {
 
     let percentage = 0;
-    if (result && result.probability) {
-        if (typeof result.probability === 'string' && result.probability.includes('%')) {
-            percentage = parseFloat(result.probability);
-        } else {
-            percentage = parseFloat(result.probability) * 100;
-        }
-    }
+    percentage = parseFloat(result.probability);
+        
 
     if (isNaN(percentage)) percentage = 0;
 
-    const isHighRisk = percentage > 50;
+    const isHighRisk = result.prediction == 1 ? true : false;
     const riskColorClass = isHighRisk ? "text-red-500" : "text-green-500";
     const riskStrokeColor = isHighRisk ? "#EF4444" : "#22C55E";
     const riskText = isHighRisk ? "HIGH RISK" : "LOW RISK";
