@@ -1,5 +1,5 @@
 import { NavLink } from "react-router"
-import previewImg from "../assets/images/preview.png";
+import previewImg from "../assets/images/preview.gif";
 import { useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faBookOpen, faHeartPulse } from '@fortawesome/free-solid-svg-icons'

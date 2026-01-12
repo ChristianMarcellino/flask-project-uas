@@ -18,11 +18,7 @@ function Navbar() {
                         <NavLink
                             to="/"
                             className={({ isActive }) =>
-                                `px-4 py-2 rounded-xl font-medium transition-all ${
-                                    isActive
-                                        ? 'bg-gray-800 text-white'
-                                        : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
-                                }`
+                                `px-4 py-2 rounded-xl font-medium transition-all ${isActive ? 'bg-gray-800 text-white' : 'text-gray-400 hover:text-white hover:bg-gray-800/50'}`
                             }
                         >
                             <FontAwesomeIcon icon={faHouse} className="w-4 h-4 mr-2" />
@@ -32,9 +28,7 @@ function Navbar() {
                             to="/predict"
                             className={({ isActive }) =>
                                 `px-4 py-2 rounded-xl font-medium transition-all ${
-                                    isActive
-                                        ? 'bg-green-500 text-gray-900'
-                                        : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
+                                    isActive ? 'bg-green-500 text-gray-900' : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
                                 }`
                             }
                         >
@@ -45,9 +39,7 @@ function Navbar() {
                             to="/learn-more"
                             className={({ isActive }) =>
                                 `px-4 py-2 rounded-xl font-medium transition-all ${
-                                    isActive
-                                        ? 'bg-gray-800 text-white'
-                                        : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
+                                    isActive  ? 'bg-gray-800 text-white' : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
                                 }`
                             }
                         >
