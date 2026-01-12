@@ -37,7 +37,7 @@ def predict():
     return jsonify({
         "data": {
             "prediction": "Positive Heart Attack" if (prediction.tolist()[0] == 1) else "Negative Heart Attack",
-            "probability": f"{loaded_model.predict_proba(x_input)[0][1]:.2f}%"
+            "probability": f"{loaded_model.predict_proba(x_input)[0][1]*100:.2f}%"
         }
     })
 
