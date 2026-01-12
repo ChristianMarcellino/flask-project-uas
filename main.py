@@ -17,7 +17,7 @@ columns = [
     "Troponin"
 ]
 
-loaded_model = joblib.load('models/heartattack.pkl')
+loaded_model = joblib.load('heartattack.pkl')
 
 @app.route("/api/predict-heart-attack", methods=["POST"])
 def predict():
